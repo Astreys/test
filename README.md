@@ -12,6 +12,7 @@ Current version includes:
   - filter for phone numbers
   - two directives. first manipulates 'edit', 'delete' controls, second builds pagination (not completely finished)
   - one service to share data between controllers
+  - set of unit tests
 
 
 Important details:
