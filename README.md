@@ -4,6 +4,7 @@ brand new check in
 Current version includes:
   - display initial contact list
   - delete contact functionality
+  - add new contact functionality
   - edit contact functionality
   - sort contact list by last name
   - filter contact list by province
