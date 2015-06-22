@@ -12,7 +12,9 @@ Current version includes:
   - two directives. first manipulates 'edit', 'delete' controls, second builds pagination (not completely finished)
   - one service to share data between controllers
 
+
 Important details:
+
 1. Add New Contact functionality is realised through the service just to show that data can be shared between controllers.
 2. I didn't create unit test for 'saveContact' because it uses service and I just in process to figure out how create test for services.
 3. Pagination is not finished completely, hope to update it soon.
