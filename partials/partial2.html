@@ -1,0 +1,52 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h1>Create new contact</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<form>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="m.newRecord.first_name">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="m.newRecord.last_name">
+            </div>
+            <div class="form-group">
+              <label for="address1">Address line 1</label>
+              <input type="text" class="form-control" id="address1" placeholder="Address line 1" ng-model="m.newRecord.address_ln1">
+            </div>
+            <div class="form-group">
+              <label for="address2">Address line 2</label>
+              <input type="text" class="form-control" id="address2" placeholder="Address line 2" ng-model="m.newRecord.address_ln2">
+            </div>
+            <div class="form-group">
+              <label for="address3">Address line 3</label>
+              <input type="text" class="form-control" id="address3" placeholder="Address line 3" ng-model="m.newRecord.address_ln3">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone" placeholder="Phone" ng-model="m.newRecord.phone">
+            </div>
+          </form>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-xs-6">
+		<a class="btn btn-primary" href="#!" ng-click="saveContact()">
+			<i class="fa fa-floppy-o mar-r16"></i>
+			Save
+		</a>
+	</div>
+	<div class="col-xs-6">
+		<a class="btn btn-default pull-right" href="#/view1">
+			<i class="fa fa-chevron-left mar-r16"></i>
+			Back to Contact List Directory
+		</a>
+	</div>
+</div>

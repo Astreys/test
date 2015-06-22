@@ -1,0 +1,42 @@
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" ng-show="title">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind-html="title"></h4>
+      </div>
+      <div class="modal-body">
+        	<form>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="m.editRecord.first_name">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="m.editRecord.last_name">
+            </div>
+            <div class="form-group">
+              <label for="address1">Address line 1</label>
+              <input type="text" class="form-control" id="address1" placeholder="Address line 1" ng-model="m.editRecord.address_ln1">
+            </div>
+            <div class="form-group">
+              <label for="address2">Address line 2</label>
+              <input type="text" class="form-control" id="address2" placeholder="Address line 2" ng-model="m.editRecord.address_ln2">
+            </div>
+            <div class="form-group">
+              <label for="address3">Address line 3</label>
+              <input type="text" class="form-control" id="address3" placeholder="Address line 3" ng-model="m.editRecord.address_ln3">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone" placeholder="Phone" ng-model="m.editRecord.phone">
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="$hide(); editRecord(m.editRecord)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

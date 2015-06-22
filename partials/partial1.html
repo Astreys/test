@@ -1,0 +1,69 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h1>All contacts</h1>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-8"></div>
+    <div class="col-sm-3 col-xs-5">
+
+    </div>
+    <div class="col-sm-1 col-xs-2">
+    	<a class="btn btn-default btn-add" href="#/view2">
+    		<i class="fa fa-plus mar-r8"></i> Add new contact
+    	</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+    	<table class="table table-hover table-list mar-t16">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>
+						<div class="cursor-pointer" ng-click="orderByName()">
+							Name
+							<i class="fa fa-sort-alpha-asc mar-l32"  ng-show="m.orderByName == 'last_name'"></i>
+							<i class="fa fa-sort-alpha-desc mar-l32" ng-show="m.orderByName == '-last_name'"></i>
+						</div>
+					</th>
+					<th>
+						Address
+						<a class="btn-selectProvince" ng-model="m.selectedProvince" data-placeholder="All Provinces" data-html="1" bs-options="province.value as province.label for province in m.provinces" bs-select href="javascript:void(0)">
+				      		All Provinces <span class="caret"></span>
+						</a>
+					</th>
+					<th>Phone</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in m.listToShow | filter: {province: m.selectedProvince} | orderBy: m.orderByName" editcontrol>
+					<td>{{$index+1}}</td>
+					<td>{{item.first_name}} {{item.last_name}}</td>
+					<td>
+						{{item.address}}, {{item.city}}<br>
+						{{item.zip}}, {{item.province}}
+					</td>
+					<td>{{item.phone | tel}}</td>
+					<td>
+						<div class="edit-box edit-box-{{$index}}" data-index={{$index}}>
+							<div class="row">
+							<div class="col-xs-6">
+								<i class="fa fa-pencil-square-o" ng-click="editCall($index)"></i>
+							</div>
+							<div class="col-xs-6">
+								<i class="fa fa-trash" ng-click="deleteCall($index)"></i>
+							</div>
+						</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<pagination total-items="m.paginator.totalItems" ng-model="m.paginator.currentPage"></pagination>
+    </div>
+</div>
