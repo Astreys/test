@@ -25,8 +25,7 @@
 					<th>
 						<div class="cursor-pointer" ng-click="orderByName()">
 							Name
-							<i class="fa fa-sort-alpha-asc mar-l32"  ng-show="m.orderByName == 'last_name'"></i>
-							<i class="fa fa-sort-alpha-desc mar-l32" ng-show="m.orderByName == '-last_name'"></i>
+							<i class="fa mar-l32"  ng-class="{'fa-sort-alpha-asc': m.orderByName == 'last_name', 'fa-sort-alpha-desc': m.orderByName == '-last_name'}"></i>
 						</div>
 					</th>
 					<th>
@@ -40,7 +39,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in m.listToShow | filter: {province: m.selectedProvince} | orderBy: m.orderByName" editcontrol>
+				<tr ng-repeat="item in m.listToShow | orderBy: m.orderByName" editcontrol>
 					<td>{{$index+1}}</td>
 					<td>{{item.first_name}} {{item.last_name}}</td>
 					<td>
@@ -63,7 +62,6 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<pagination total-items="m.paginator.totalItems" ng-model="m.paginator.currentPage"></pagination>
+		<pagination total-items="m.paginator.totalItems" ng-model="m.paginator.currentPage" ></pagination>
     </div>
 </div>

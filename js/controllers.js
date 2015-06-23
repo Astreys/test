@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MyCtrl1', function ($scope, $modal, shareDataService) {
+app.controller('MyCtrl1', function ($scope, $modal, $filter, shareDataService) {
 
     // model
     $scope.m = {};
@@ -53,7 +53,7 @@ app.controller('MyCtrl1', function ($scope, $modal, shareDataService) {
         last_name:  'Rodriguez',
         address:    '61 Parkdale Avenue',
         city:       'Hamilton',
-        province:   'ON',
+        province:   'BC',
         zip:        'L8K 1A4',
         phone:      '9055494743'
     },{
@@ -69,7 +69,7 @@ app.controller('MyCtrl1', function ($scope, $modal, shareDataService) {
         last_name:  'Russell',
         address:    '3383 Yonge Street',
         city:       'Toronto',
-        province:   'ON',
+        province:   'NS',
         zip:        'M4W 1J7',
         phone:      '4169209135'
     },{
@@ -101,7 +101,7 @@ app.controller('MyCtrl1', function ($scope, $modal, shareDataService) {
         last_name:  'Hanson',
         address:    '2243 Whitmore Road',
         city:       'Woodbridge, ON',
-        province:   'ON',
+        province:   'SK',
         zip:        'L0L 0L0',
         phone:      '9052649675'
     },{
@@ -133,7 +133,7 @@ app.controller('MyCtrl1', function ($scope, $modal, shareDataService) {
         last_name:  'Dake',
         address:    '2498 Bay Street',
         city:       'Toronto, ON',
-        province:   'ON',
+        province:   'MB',
         zip:        'M5J 2R8',
         phone:      '4168902845'
     }];
@@ -194,6 +194,20 @@ app.controller('MyCtrl1', function ($scope, $modal, shareDataService) {
     // delete record
     $scope.deleteRecord = function(recordIndex){
         $scope.m.list.splice(recordIndex, 1);
+    }
+
+    $scope.$watch('m.selectedProvince', function() {
+        if($scope.m.selectedProvince != undefined && $scope.m.selectedProvince != null){
+            $scope.filterByProvince($scope.m.selectedProvince);
+        }
+    });
+
+    $scope.filterByProvince = function(province){
+        if(province == ''){
+            $scope.m.paginator.setPage(1);
+        } else {
+            $scope.m.listToShow = $filter('filter')($scope.m.list, {province: province});
+        }
     }
 
     $scope.orderByName = function() {

@@ -223,10 +223,15 @@ h6, .h6 {
 /* paginator.less */
 .paginator {
   list-style: none;
+  padding: 0;
 }
 .paginator li {
   display: inline-block;
   margin: 0 2px;
+}
+.paginator li .btn.current {
+  background: #008cba;
+  color: #fff;
 }
 .paginator .btn-sm {
   padding: 6px 12px;
@@ -244,7 +249,6 @@ h6, .h6 {
 @import "forms-errors.less";
 @import "modal.less";*/
 /* components */
-/* icons.less */
 /* last for overrides */
 /* utilities.less */
 .display-block {

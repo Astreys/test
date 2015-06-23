@@ -25,7 +25,7 @@ app.directive('pagination', function ($compile) {
     return {
         restrict: 'E',
         link: function (scope, element, attrs, ngModel) {
-            var el = angular.element('<ul class="paginator" />');
+            var el = angular.element('<ul class="paginator" ng-if="m.paginator.totalItems > m.paginator.maxSize && (m.list | filter: {province: m.selectedProvince}).length > m.paginator.maxSize" />');
             /* TODO
                 read data from attributes
                 set proper class names
@@ -33,7 +33,7 @@ app.directive('pagination', function ($compile) {
             var numberOfPages = Math.ceil(scope.m.paginator.totalItems / scope.m.paginator.maxSize);
 
             for (var i = 0; i < numberOfPages; i++) {
-                el.append('<li><button class="btn btn-default btn-sm" ng-click="m.paginator.setPage(' + (i+1) + ')">' + (i+1) + '</button></li>');
+                el.append('<li><button class="btn btn-default btn-sm" ng-class="{current: m.paginator.currentPage == ' + (i+1) + '}" ng-click="m.paginator.setPage(' + (i+1) + ')">' + (i+1) + '</button></li>');
             }
 
             $compile(el)(scope);
